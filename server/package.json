@@ -1,0 +1,41 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@pefish/js-electron-common": "^0.1.11",
+    "@pefish/js-helper-logger": "^0.0.6",
+    "@pefish/js-node-assist": "^0.6.5",
+    "@pefish/js-util-config": "^0.0.1",
+    "@pefish/js-util-file": "^0.0.1"
+  },
+  "productName": "Test",
+  "main": "lib/start.js",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "start": "yarn build && NODE_CONFIG=`pwd`/config/local.json electron .",
+    "start-prod": "yarn build && NODE_CONFIG=`pwd`/config/prod.json electron .",
+    "pack-mac": "electron-packager ./ CoinTool --platform=mas --arch=x64 --electron-version=5.0.2 --out=/Users/joy/Desktop --overwrite --ignore=`pwd`/src/ --ignore=.idea --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
+    "pack-mac-all": "yarn build && yarn build-server && yarn pack-mac"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.7",
+    "electron": "^5.0.2",
+    "electron-packager": "^13.0.1",
+    "electron-rebuild": "^1.8.5",
+    "nodemon": "^1.18.7",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
