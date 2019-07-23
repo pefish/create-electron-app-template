@@ -18,15 +18,6 @@
     "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=`pwd`/out --overwrite --ignore=`pwd`/src/ --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
     "pack-mac-all": "yarn build && yarn build-server && yarn pack-mac"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
