@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "template",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -9,13 +9,13 @@
     "@pefish/js-util-config": "^0.0.1",
     "@pefish/js-util-file": "^0.0.1"
   },
-  "productName": "Test",
+  "productName": "template",
   "main": "lib/start.js",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "start": "yarn build && NODE_CONFIG=`pwd`/config/local.json electron .",
     "start-prod": "yarn build && NODE_CONFIG=`pwd`/config/prod.json electron .",
-    "pack-mac": "electron-packager ./ CoinTool --platform=mas --arch=x64 --electron-version=5.0.2 --out=/Users/joy/Desktop --overwrite --ignore=`pwd`/src/ --ignore=.idea --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
+    "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=`pwd`/out --overwrite --ignore=`pwd`/src/ --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
     "pack-mac-all": "yarn build && yarn build-server && yarn pack-mac"
   },
   "eslintConfig": {
