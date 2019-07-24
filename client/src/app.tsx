@@ -1,20 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './app.css';
+import { Provider } from 'mobx-react';
+import CommonStore from './store/common_store';
+import HomeStore from './store/home_store';
+import { HashRouter } from "react-router-dom"
+import Index from './page/index'
+
+const commonStore = new CommonStore()
+const homeStore = new HomeStore(commonStore)
+const stores = {
+  commonStore,
+  homeStore,
+};
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          这是测试栗子，哈
-        </span>
-      </header>
-    </div>
+    <Provider {...stores}>
+      <HashRouter>
+        <Index />
+      </HashRouter>
+    </Provider>
   );
 }
 

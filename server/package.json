@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@pefish/js-electron-common": "^0.1.11",
-    "@pefish/js-helper-logger": "^0.0.6",
-    "@pefish/js-node-assist": "^0.6.5",
-    "@pefish/js-util-config": "^0.0.1",
-    "@pefish/js-util-file": "^0.0.1"
+    "@pefish/js-electron-common": "^0.1.17",
+    "@pefish/js-helper-logger": "^0.0.7",
+    "@pefish/js-node-assist": "^0.6.6",
+    "@pefish/js-util-assert": "^0.0.3",
+    "@pefish/js-util-config": "^0.0.2",
+    "@pefish/js-util-file": "^0.0.4"
   },
   "productName": "template",
   "main": "lib/start.js",
@@ -15,7 +16,7 @@
     "build": "rm -rf lib && tsc",
     "start": "yarn build && NODE_CONFIG=`pwd`/config/local.json electron .",
     "start-prod": "yarn build && NODE_CONFIG=`pwd`/config/prod.json electron .",
-    "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=`pwd`/out --overwrite --ignore=`pwd`/src/ --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
+    "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=src --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
     "pack-mac-all": "yarn build && yarn build-server && yarn pack-mac"
   },
   "devDependencies": {

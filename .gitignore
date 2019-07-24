@@ -31,3 +31,4 @@ server/lib
 **/*/prod.json
 **/*/dev.json
 **/*/local.json
+out

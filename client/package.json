@@ -5,6 +5,8 @@
   "homepage": ".",
   "dependencies": {
     "@babel/core": "7.4.3",
+    "@pefish/js-electron-common": "^0.1.17",
+    "@pefish/js-node-assist": "^0.6.6",
     "@svgr/webpack": "4.1.0",
     "@types/jest": "24.0.15",
     "@types/node": "12.6.8",
@@ -12,6 +14,7 @@
     "@types/react-dom": "16.8.4",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
+    "antd": "^3.20.5",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.5",
@@ -40,6 +43,8 @@
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.3.0",
     "mini-css-extract-plugin": "0.5.0",
+    "mobx": "^5.13.0",
+    "mobx-react": "^6.1.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.2.1",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -51,6 +56,7 @@
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
@@ -66,7 +72,7 @@
   },
   "scripts": {
     "start": "BROWSER=none node scripts/start.js",
-    "build": "node scripts/build.js && rm -rf ../server/build && mv build ../server/build",
+    "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -133,5 +139,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^4.3.4",
+    "electron": "^5.0.8"
   }
 }

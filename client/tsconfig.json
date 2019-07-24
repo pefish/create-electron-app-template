@@ -17,7 +17,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@pefish"
+    ]
   },
   "include": [
     "src"
