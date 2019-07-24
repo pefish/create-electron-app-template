@@ -15,7 +15,7 @@ export default class Home extends React.Component<any,any> {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/app.tsx</code> and save to reload.
+            Edit <code>src/page/home.tsx</code> and save to reload.
           </p>
           <span>
             This is test.
