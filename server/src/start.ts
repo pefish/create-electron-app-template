@@ -94,6 +94,12 @@ AppUtil.onReady(async () => {
             window.webContents.openDevTools()
           }
         },
+        {
+          label: 'Reload',
+          click: () => {
+            global.mainWindow.reload()
+          }
+        },
       ]
     },
   ]
@@ -113,10 +119,6 @@ AppUtil.onReady(async () => {
   let url = 'file://' + file
   if (global.debug) {
     url = `http://localhost:3000`
-    electron.globalShortcut.register('f5', function() {
-      console.log('f5 is pressed')
-      global.mainWindow.reload()
-    })
   }
   window.loadURL(url + `#/index`)
   window.show()
