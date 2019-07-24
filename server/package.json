@@ -16,7 +16,7 @@
     "build": "rm -rf lib && tsc",
     "start": "yarn build && NODE_CONFIG=`pwd`/config/local.json electron .",
     "start-prod": "yarn build && NODE_CONFIG=`pwd`/config/prod.json electron .",
-    "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=src --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
+    "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
     "pack-mac-all": "yarn build && yarn build-server && yarn pack-mac"
   },
   "devDependencies": {
