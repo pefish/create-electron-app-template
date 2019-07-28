@@ -13,20 +13,22 @@
   "productName": "template",
   "main": "lib/start.js",
   "scripts": {
-    "build": "rm -rf lib && tsc",
-    "start": "yarn build && NODE_CONFIG=`pwd`/config/local.json electron .",
-    "start-prod": "yarn build && NODE_CONFIG=`pwd`/config/prod.json electron .",
-    "pack-mac": "electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
-    "pack-mac-all": "yarn build && yarn build-server && yarn pack-mac"
+    "build": "rimraf -rf lib && tsc",
+    "start": "yarn build && cross-env NODE_CONFIG=`pwd`/config/local.json electron .",
+    "start-prod": "yarn build && cross-env NODE_CONFIG=`pwd`/config/prod.json electron .",
+    "pack-mac": "electron-rebuild -a mas && electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
+    "pack-win": "electron-rebuild -a win32 && electron-packager ./ template --platform=win32 --arch=x64 --electron-version=5.0.2 --out=../out --version-string.CompanyName=PEFISH --overwrite --ignore=yarn.lock --package-manager=yarn --icon=icon.ico"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.7",
+    "across-env": "^1.0.8",
     "electron": "^5.0.2",
     "electron-packager": "^13.0.1",
     "electron-rebuild": "^1.8.5",
     "nodemon": "^1.18.7",
+    "rimraf": "^2.6.3",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
   }
