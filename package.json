@@ -1,8 +1,6 @@
 {
   "name": "script",
   "version": "0.0.1",
-  "private": true,
-  "productName": "template",
   "scripts": {
     "build": "cd client && yarn build && cd ../server && yarn build",
     "start-client": "cd client && yarn start",
