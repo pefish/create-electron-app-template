@@ -14,9 +14,9 @@
   "main": "lib/start.js",
   "scripts": {
     "build": "rimraf -rf lib && tsc",
-    "start": "yarn build && cross-env NODE_CONFIG=`pwd`/config/local.json electron .",
-    "start-prod": "yarn build && cross-env NODE_CONFIG=`pwd`/config/prod.json electron .",
-    "pack-mac": "electron-rebuild -a x64 && electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=yarn.lock --package-manager=yarn --icon=icon.icns",
+    "start": "yarn build && NODE_CONFIG=`pwd`/config/local.json electron .",
+    "start-prod": "yarn build && NODE_CONFIG=`pwd`/config/prod.json electron .",
+    "pack-mac": "electron-rebuild -a x64 && electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json|src)\" --package-manager=yarn --icon=icon.icns",
     "pack-win": "electron-rebuild -a x64 && electron-packager ./ template --platform=win32 --arch=x64 --electron-version=5.0.2 --out=../out --version-string.CompanyName=PEFISH --overwrite --ignore=yarn.lock --package-manager=yarn --icon=icon.ico"
   },
   "devDependencies": {

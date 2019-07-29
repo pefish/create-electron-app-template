@@ -7,6 +7,7 @@ import electron from 'electron'
 import Log4js from '@pefish/js-helper-logger/lib/log4js'
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 import ConfigUtil from '@pefish/js-util-config'
+import os from 'os'
 
 declare global {
   namespace NodeJS {
@@ -15,6 +16,7 @@ declare global {
       config: object;
       debug: boolean;
       mainWindow: any;
+      dataDir: string
     }
   }
 }
@@ -23,14 +25,14 @@ new ElectronRouteFactory().buildRoute(
   path.join(__dirname, './controller')
 )
 
-
 AppUtil.onReady(async () => {
   global.logger.info(`启动中。。。`)
-  global['config'] = ConfigUtil.loadConfig(path.join(FileUtil.getStartFilePath(), `../config/prod.json`))
-  global['debug'] = global.config['env'] !== 'prod'
+  global.config = ConfigUtil.loadConfig(path.join(FileUtil.getStartFilePath(), `../config/prod.json`))
+  global.debug = global.config['env'] !== 'prod'
   const packageInfo = require(path.join(FileUtil.getStartFilePath(), `../package.json`))
-  global['logger'] = new Log4js(packageInfo[`name`], `${process.env.HOME}/.${packageInfo[`name`]}/log`)
-  global[`dataDir`] = `${process.env.HOME}/.${packageInfo[`name`]}/data`
+  const homedir = os.homedir()
+  global.logger = new Log4js(packageInfo[`name`], `${homedir}/.${packageInfo[`name`]}/log`)
+  global.dataDir = `${homedir}/.${packageInfo[`name`]}/data`
   FileUtil.mkdirSync(global[`dataDir`])
 
 
