@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@pefish/js-electron-common@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.1.17.tgz#c1f80f839cf36443a2a8c500f1ed3cd33fcaf4ba"
-  integrity sha512-OJUfjYWzdz5G1c616BVfQLY7SreuHIqHnrEkkVNIoMy+qcze/Mv4O2v6aMTTz9PM7Nrjg/cPs75wX4p86vW5PA==
+"@pefish/js-electron-common@^0.1.22":
+  version "0.1.22"
+  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.1.22.tgz#d56728607bf7301c438ddaf481df29b968f2901b"
+  integrity sha512-UFtbgbq6Bd9EoJz6Tf9B0LE7HJND1z+6ftNxcpq9VEcf086d3vGhpBB9S04/gGxMgg3g7poh3WDTzB0q0ADfoA==
   dependencies:
     "@pefish/js-error" "^0.1.1"
     "@pefish/js-util-desensitize" "^0.0.3"
@@ -31,6 +31,14 @@
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.6.tgz#62673762c0dcc8ce3faf20c8bb777008fb69a084"
   integrity sha512-IvdZCVDZXi2oc25XlKEHC7bCMaTNyDmYN+wPpcRQOEpa1A4JEsscIVWbw33zNMeKWuOfVWdFdJopgxwchRHx3A==
+  dependencies:
+    "@pefish/js-error" "^0.1.1"
+    bignumber.js "^8.1.1"
+
+"@pefish/js-node-assist@^0.6.7":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.7.tgz#6df5a9e9120b16ef38e79ed357202910353a57c2"
+  integrity sha512-zrY/110BvwZrxUrOVnyNJO/mFIgOyRXW8nqjj+dGkYtG8PjPFqu/lnVu3W/M6FOcwdBq3pUf8usc1xmAygYtXg==
   dependencies:
     "@pefish/js-error" "^0.1.1"
     bignumber.js "^8.1.1"

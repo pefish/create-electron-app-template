@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@pefish/js-electron-common": "^0.1.17",
+    "@pefish/js-electron-common": "^0.1.22",
     "@pefish/js-helper-logger": "^0.0.7",
-    "@pefish/js-node-assist": "^0.6.6",
+    "@pefish/js-node-assist": "^0.6.7",
     "@pefish/js-util-assert": "^0.0.3",
     "@pefish/js-util-config": "^0.0.2",
     "@pefish/js-util-file": "^0.0.4"
