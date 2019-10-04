@@ -3,7 +3,7 @@ import path from 'path'
 import { AppUtil, ElectronRouteFactoryHelper } from '@pefish/js-electron-common'
 import FileUtil from '@pefish/js-util-file'
 import electron from 'electron'
-import Log4js from '@pefish/js-helper-logger/lib/log4js'
+import { Log4js } from '@pefish/js-helper-logger'
 import ConfigUtil from '@pefish/js-util-config'
 import os from 'os'
 
@@ -34,7 +34,10 @@ AppUtil.onReady(async () => {
   FileUtil.mkdirSync(global[`dataDir`])
 
 
-  global.mainWindow = AppUtil.getMainWindow()
+  global.mainWindow = AppUtil.getMainWindow({
+    height: 600,
+    width: 800,
+  })
   const file = path.join(FileUtil.getStartFilePath(), '../build/index.html')
   let url = 'file://' + file
   if (global.debug) {

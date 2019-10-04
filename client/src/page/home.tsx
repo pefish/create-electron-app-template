@@ -3,23 +3,27 @@ import { inject, observer } from 'mobx-react';
 import logo from '../logo.svg';
 import './home.css'
 import {
-  Button,
+  Button, Input,
 } from 'antd';
 
 @inject('homeStore')
 @observer
-export default class Home extends React.Component<any,any> {
+export default class Home extends React.Component<any, any> {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/page/home.tsx</code> and save to reload.
-          </p>
-          <span>
-            This is test.
-          </span>
+      <div className="app">
+        <div style={{
+          width: 300
+        }}>
+          <Input placeholder={`用户名`} />
+          <Input placeholder={`密码`} />
+          <Button type={`primary`}>登录</Button>
+        </div>
+        <div style={{
+          display: `flex`,
+          flexDirection: `column`,
+          marginTop: 100
+        }}>
           <span>
             {this.props.homeStore.counter}
           </span>
@@ -30,7 +34,7 @@ export default class Home extends React.Component<any,any> {
             const datas = await this.props.homeStore.requestServer()
             alert(JSON.stringify(datas))
           }}>test</Button>
-        </header>
+        </div>
       </div>
     );
   }

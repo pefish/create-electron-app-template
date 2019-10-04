@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@pefish/js-electron-common@^0.1.22":
-  version "0.1.22"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.1.22.tgz#d56728607bf7301c438ddaf481df29b968f2901b"
-  integrity sha512-UFtbgbq6Bd9EoJz6Tf9B0LE7HJND1z+6ftNxcpq9VEcf086d3vGhpBB9S04/gGxMgg3g7poh3WDTzB0q0ADfoA==
+"@pefish/js-electron-common@^0.1.23":
+  version "0.1.23"
+  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.1.23.tgz#f40c89dc176ae6dacbf493ae764ea0a4b8581573"
+  integrity sha512-OCkb8okdeis0O+FrwUVcmUowStDnY0/1wNdFb96YfFxmK6xX/y76+Nw4FmXI5KLl5igtrJaVYLCcInN2b/nHEg==
   dependencies:
     "@pefish/js-error" "^0.1.1"
     "@pefish/js-util-desensitize" "^0.0.3"
@@ -16,29 +16,31 @@
   resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.1.tgz#d3e6f4a1362206aaf73afd628465364c3a581ed2"
   integrity sha512-JNLY0twr0fVEnGgrMetZsBZrStDGmHDX0dY9amDChTzVqrGEd6dvpzkR9BxINGhWgeAX6naTzI2FZn3ZwGlrsw==
 
-"@pefish/js-helper-logger@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@pefish/js-helper-logger/-/js-helper-logger-0.0.7.tgz#1cddce83d845b11a4156253681ede526a80cd1ae"
-  integrity sha512-Rmfn3ZwQ9bcRFzV47QymjOlz7GOpoOjYnl+oSn5jKfjYZIvC/OQB7Mv7y1dHijm2rN3Qz54C5vGfedrgKp3hRg==
+"@pefish/js-error@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.2.tgz#89913c01f960318fa5108e79d99c27ad90b4430f"
+  integrity sha512-JFM3pW2MhGwOwdaSfUw79DsE52oh27meYzL07B/gkX7+oF0ByVs1/BuEFMBaTk5RMnMijN0lCEuCpfZgcShO3A==
+
+"@pefish/js-helper-logger@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@pefish/js-helper-logger/-/js-helper-logger-0.0.8.tgz#d40126e36a93a8783ac12e5cf72a062b751bd060"
+  integrity sha512-aJGi8mzZwh34sj9zzb6KaOF5GeMG+dTWbfzWoyDmUWmGQgQiZKnvQcL3fi6S03UCBQvGCVxv/63HhY1xOKyJkw==
   dependencies:
-    "@pefish/js-error" "^0.1.1"
-    "@pefish/js-node-assist" "^0.6.6"
-    "@pefish/js-util-time" "^0.0.2"
     log4js "^2.3.12"
     moment "^2.24.0"
+
+"@pefish/js-node-assist@^0.6.11":
+  version "0.6.11"
+  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.11.tgz#b518afc950f145cea7c87262520baf48aa95ea85"
+  integrity sha512-osPSF2A4cBiSH5rPOSymnueRiOrHL4hmGidaUhmGByvbaKopKT/XZdRf2bZDoS74oLyloXCfroD/3fJLmVESWA==
+  dependencies:
+    "@pefish/js-error" "^0.1.2"
+    bignumber.js "^8.1.1"
 
 "@pefish/js-node-assist@^0.6.6":
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.6.tgz#62673762c0dcc8ce3faf20c8bb777008fb69a084"
   integrity sha512-IvdZCVDZXi2oc25XlKEHC7bCMaTNyDmYN+wPpcRQOEpa1A4JEsscIVWbw33zNMeKWuOfVWdFdJopgxwchRHx3A==
-  dependencies:
-    "@pefish/js-error" "^0.1.1"
-    bignumber.js "^8.1.1"
-
-"@pefish/js-node-assist@^0.6.7":
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.7.tgz#6df5a9e9120b16ef38e79ed357202910353a57c2"
-  integrity sha512-zrY/110BvwZrxUrOVnyNJO/mFIgOyRXW8nqjj+dGkYtG8PjPFqu/lnVu3W/M6FOcwdBq3pUf8usc1xmAygYtXg==
   dependencies:
     "@pefish/js-error" "^0.1.1"
     bignumber.js "^8.1.1"
@@ -51,13 +53,10 @@
     "@pefish/js-error" "^0.1.1"
     bignumber.js "^8.1.1"
 
-"@pefish/js-util-config@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-config/-/js-util-config-0.0.2.tgz#f019727144609bb11580ad34daba1c00ad5c56cd"
-  integrity sha512-fjq2m3YQcImQtB/8MfrihWuWtXHRydxwLw2oNoQGJJaHS1rHH3qoQs9+kbnJdTSwsttoD+GXbhVbrs61l2ydCA==
-  dependencies:
-    "@pefish/js-error" "^0.1.1"
-    "@pefish/js-node-assist" "^0.6.6"
+"@pefish/js-util-config@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pefish/js-util-config/-/js-util-config-0.1.0.tgz#a763dd2bd8bbb77dffad456dd7b7ff5f8573870a"
+  integrity sha512-riDo68zc2fNyRcf7eNotqsxIp9yw8AYLtu+vlX/KuXKi9XcBOPxb59TiW0CHQ+ZEULVys/+9UbI1PgbDokFQMQ==
 
 "@pefish/js-util-desensitize@^0.0.3":
   version "0.0.3"
@@ -71,14 +70,6 @@
   dependencies:
     "@pefish/js-error" "^0.1.1"
     "@pefish/js-node-assist" "^0.6.6"
-
-"@pefish/js-util-time@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-time/-/js-util-time-0.0.2.tgz#d1d57bc9f6e2187e6c02d1b311a5b7ff3465d154"
-  integrity sha512-a0dh6ewbKqf1l8QFMRrKux/3a4jV8zvkqUoCC+1H4UDx2if6iQ8IwjOdlLRwLp8m4QS9wjCnEkpZBccf38RDSg==
-  dependencies:
-    "@pefish/js-node-assist" "^0.6.6"
-    moment "^2.24.0"
 
 "@types/chai@^4.1.7":
   version "4.1.7"
