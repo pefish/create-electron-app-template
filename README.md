@@ -25,3 +25,16 @@ You **don’t** need to install or configure tools like Webpack or Babel.<br>
 They are preconfigured and hidden so that you can focus on the code.
 
 Just create a project, and you’re good to go.
+
+
+### build on mac
+
+```sh
+yarn pack-mac
+```
+
+### build on windows
+
+```sh
+yarn pack-win
+```
