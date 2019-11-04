@@ -19,14 +19,10 @@ declare global {
   }
 }
 
-new ElectronRouteFactoryHelper().buildRoute(
-  path.join(__dirname, './controller')
-)
-
 AppUtil.onReady(async () => {
   global.logger.info(`启动中。。。`)
   global.config = ConfigUtil.loadYamlConfig({
-    configEnvName: `NODE_CONFIG`,
+    configFilePath: path.join(FileUtil.getStartFilePath(), `../config/prod.json`),
   })
   global.debug = global.config.env !== 'prod'
   const packageInfo = require(path.join(FileUtil.getStartFilePath(), `../package.json`))
@@ -35,6 +31,9 @@ AppUtil.onReady(async () => {
   global.dataDir = `${homedir}/.${packageInfo.name}/data`
   FileUtil.mkdirSync(global.dataDir)
 
+  await new ElectronRouteFactoryHelper().buildRoute(
+    path.join(__dirname, './controller')
+  )
 
   global.mainWindow = AppUtil.getMainWindow({
     height: 600,
