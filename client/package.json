@@ -5,8 +5,8 @@
   "homepage": ".",
   "dependencies": {
     "@babel/core": "7.4.3",
-    "@pefish/js-electron-common": "^0.1.17",
-    "@pefish/js-node-assist": "^0.6.6",
+    "@pefish/js-electron-common": "^0.1.24",
+    "@pefish/js-node-assist": "^0.6.11",
     "@svgr/webpack": "4.1.0",
     "@types/jest": "24.0.15",
     "@types/node": "12.6.8",

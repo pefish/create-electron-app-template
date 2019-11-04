@@ -1130,19 +1130,33 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@pefish/js-electron-common@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.1.17.tgz#c1f80f839cf36443a2a8c500f1ed3cd33fcaf4ba"
-  integrity sha512-OJUfjYWzdz5G1c616BVfQLY7SreuHIqHnrEkkVNIoMy+qcze/Mv4O2v6aMTTz9PM7Nrjg/cPs75wX4p86vW5PA==
+"@pefish/js-electron-common@^0.1.24":
+  version "0.1.24"
+  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.1.24.tgz#b9b7759a6511fd5f2a3c4878c0a32dbde9657404"
+  integrity sha512-wc6vjwQ4qpfnQWqVx5ydNJ3cQJNyF0w2//uBFPGB64NBtbLRBYjG8MX/yTcYhfOdvzKFXnMMRSIZI8xqZk6XLw==
   dependencies:
     "@pefish/js-error" "^0.1.1"
-    "@pefish/js-util-desensitize" "^0.0.3"
+    "@pefish/js-util-desensitize" "^0.1.0"
     "@pefish/js-util-file" "^0.0.4"
+    "@pefish/js-util-httprequest" "^0.1.0"
 
 "@pefish/js-error@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.1.tgz#d3e6f4a1362206aaf73afd628465364c3a581ed2"
   integrity sha512-JNLY0twr0fVEnGgrMetZsBZrStDGmHDX0dY9amDChTzVqrGEd6dvpzkR9BxINGhWgeAX6naTzI2FZn3ZwGlrsw==
+
+"@pefish/js-error@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.2.tgz#89913c01f960318fa5108e79d99c27ad90b4430f"
+  integrity sha512-JFM3pW2MhGwOwdaSfUw79DsE52oh27meYzL07B/gkX7+oF0ByVs1/BuEFMBaTk5RMnMijN0lCEuCpfZgcShO3A==
+
+"@pefish/js-node-assist@^0.6.11":
+  version "0.6.11"
+  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.11.tgz#b518afc950f145cea7c87262520baf48aa95ea85"
+  integrity sha512-osPSF2A4cBiSH5rPOSymnueRiOrHL4hmGidaUhmGByvbaKopKT/XZdRf2bZDoS74oLyloXCfroD/3fJLmVESWA==
+  dependencies:
+    "@pefish/js-error" "^0.1.2"
+    bignumber.js "^8.1.1"
 
 "@pefish/js-node-assist@^0.6.6":
   version "0.6.6"
@@ -1152,10 +1166,10 @@
     "@pefish/js-error" "^0.1.1"
     bignumber.js "^8.1.1"
 
-"@pefish/js-util-desensitize@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-desensitize/-/js-util-desensitize-0.0.3.tgz#83336a64d4be0e1c952e9799f3c0404bca8cee97"
-  integrity sha512-dYRZArm/4JWSnVEU2InLFmECfM6x88ix6qLPOJZQJp450FBsZDNvCaIIvPPQVqkZSeR5V6hDTxLd20INwnbXGw==
+"@pefish/js-util-desensitize@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pefish/js-util-desensitize/-/js-util-desensitize-0.1.0.tgz#8cec31858ee9b450512a7053dbbd1cca7c9933fd"
+  integrity sha512-+rGrebTjtrpWoZmXU+969kYtsBWOw2r5M5YLp3nixfgpjC8z9LYhBPlSejaBSIsSLfXLWjRx0Dvnmgap/VXz3A==
 
 "@pefish/js-util-file@^0.0.4":
   version "0.0.4"
@@ -1164,6 +1178,15 @@
   dependencies:
     "@pefish/js-error" "^0.1.1"
     "@pefish/js-node-assist" "^0.6.6"
+
+"@pefish/js-util-httprequest@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pefish/js-util-httprequest/-/js-util-httprequest-0.1.0.tgz#0646bb3c5b0d0d6ea3bbecd82f7d39283f859e86"
+  integrity sha512-fSizNlq3TkIi4Uwrj0Q3syc/Li81b24W+R8uWvyEzlrilUJ9bljbXn3vQURmCfEv7IsmAHT0BTxxyH3mW5eNjA==
+  dependencies:
+    "@pefish/js-util-desensitize" "^0.1.0"
+    request "^2.88.0"
+    request-promise-native "^1.0.8"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -6416,7 +6439,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
 
-lodash@^4.16.5, lodash@^4.17.13, lodash@^4.17.4:
+lodash@^4.16.5, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.4:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -9313,12 +9336,28 @@ request-promise-core@1.1.2:
   dependencies:
     lodash "^4.17.11"
 
+request-promise-core@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.3.tgz#e9a3c081b51380dfea677336061fea879a829ee9"
+  integrity sha512-QIs2+ArIGQVp5ZYbWD5ZLCY29D5CfWizP8eWnm8FoGD1TX61veauETVQbrV60662V0oFBkrDOuaBI8XgtuyYAQ==
+  dependencies:
+    lodash "^4.17.15"
+
 request-promise-native@^1.0.5:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/request-promise-native/-/request-promise-native-1.0.7.tgz#a49868a624bdea5069f1251d0a836e0d89aa2c59"
   integrity sha512-rIMnbBdgNViL37nZ1b3L/VfPOpSi0TqVDQPAvO6U14lMzOLrt5nilxCQqtDKhZeDiW0/hkCXGoQjhgJd/tCh6w==
   dependencies:
     request-promise-core "1.1.2"
+    stealthy-require "^1.1.1"
+    tough-cookie "^2.3.3"
+
+request-promise-native@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/request-promise-native/-/request-promise-native-1.0.8.tgz#a455b960b826e44e2bf8999af64dff2bfe58cb36"
+  integrity sha512-dapwLGqkHtwL5AEbfenuzjTYg35Jd6KPytsC2/TLkVMz8rm+tNt72MGUWT1RP/aYawMpN6HqbNGBQaRcBtjQMQ==
+  dependencies:
+    request-promise-core "1.1.3"
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 

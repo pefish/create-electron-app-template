@@ -1,6 +1,5 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import logo from '../logo.svg';
 import './home.css'
 import {
   Button, Input,
@@ -29,11 +28,15 @@ export default class Home extends React.Component<any, any> {
           </span>
           <Button type={`primary`} onClick={() => {
             this.props.homeStore.add()
-          }}>add</Button>
+          }}>加计数</Button>
           <Button type={`primary`} onClick={async () => {
             const datas = await this.props.homeStore.requestServer()
             alert(JSON.stringify(datas))
-          }}>test</Button>
+          }}>IPC请求后端</Button>
+          <Button type={`primary`} onClick={async () => {
+            const datas = await this.props.homeStore.netRequestServer()
+            alert(JSON.stringify(datas))
+          }}>网络请求百度</Button>
         </div>
       </div>
     );

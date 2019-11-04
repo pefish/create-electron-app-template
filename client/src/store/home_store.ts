@@ -34,4 +34,14 @@ export default class HomeStore {
     }
   }
 
+  async netRequestServer () {
+    try {
+      const datas = await IpcRenderUtil.httpGet(`http://baidu.com`)
+      return datas
+    } catch(err) {
+      console.error(err)
+      throw err
+    }
+  }
+
 }

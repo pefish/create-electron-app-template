@@ -11,7 +11,7 @@ declare global {
   namespace NodeJS {
     interface Global {
       logger: any,
-      config: object;
+      config: {[x: string]: any};
       debug: boolean;
       mainWindow: electron.BrowserWindow;
       dataDir: string
@@ -25,13 +25,15 @@ new ElectronRouteFactoryHelper().buildRoute(
 
 AppUtil.onReady(async () => {
   global.logger.info(`启动中。。。`)
-  global.config = ConfigUtil.loadConfig(path.join(FileUtil.getStartFilePath(), `../config/prod.json`))
-  global.debug = global.config['env'] !== 'prod'
+  global.config = ConfigUtil.loadYamlConfig({
+    configEnvName: `NODE_CONFIG`,
+  })
+  global.debug = global.config.env !== 'prod'
   const packageInfo = require(path.join(FileUtil.getStartFilePath(), `../package.json`))
   const homedir = os.homedir()
-  global.logger = new Log4js(packageInfo[`name`], `${homedir}/.${packageInfo[`name`]}/log`)
-  global.dataDir = `${homedir}/.${packageInfo[`name`]}/data`
-  FileUtil.mkdirSync(global[`dataDir`])
+  global.logger = new Log4js(packageInfo.name, `${homedir}/.${packageInfo.name}/log`)
+  global.dataDir = `${homedir}/.${packageInfo.name}/data`
+  FileUtil.mkdirSync(global.dataDir)
 
 
   global.mainWindow = AppUtil.getMainWindow({
