@@ -25,7 +25,6 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.7",
     "across-env": "^1.0.8",
-    "electron": "^5.0.2",
     "electron-packager": "^13.0.1",
     "electron-rebuild": "^1.8.5",
     "nodemon": "^1.18.7",
