@@ -4,18 +4,19 @@
   "description": "template_description",
   "private": true,
   "dependencies": {
-    "@pefish/js-electron-common": "^0.2.0",
+    "@pefish/js-electron-common": "^0.3.4",
     "@pefish/js-helper-logger": "^0.0.8",
     "@pefish/js-node-assist": "^0.6.11",
     "@pefish/js-util-assert": "^0.0.3",
-    "@pefish/js-util-config": "^0.2.1",
+    "@pefish/js-util-config": "^0.2.3",
     "@pefish/js-util-file": "^0.0.4"
   },
   "productName": "template",
   "main": "lib/start.js",
   "scripts": {
     "build": "rimraf -rf lib && tsc",
-    "start": "yarn build && electron .",
+    "start": "yarn build && NODE_CONFIG=`pwd`/config/local.yaml electron .",
+    "start-prod": "yarn build && electron .",
     "pack-mac": "electron-rebuild -a x64 && electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --package-manager=yarn --icon=icon.icns",
     "pack-win": "electron-rebuild -a x64 && electron-packager ./ template --platform=win32 --arch=x64 --electron-version=5.0.2 --out=../out --version-string.CompanyName=PEFISH --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --package-manager=yarn --icon=icon.ico"
   },

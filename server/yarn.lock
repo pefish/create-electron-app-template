@@ -2,12 +2,13 @@
 # yarn lockfile v1
 
 
-"@pefish/js-electron-common@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.2.0.tgz#bb86682368ca5612b58476cea485ca386c440e0a"
-  integrity sha512-WDWL//VULXc9VxnZ/V95vFU76dgcPcF/1CVoCIw/ZhJkkWJA57scZ8StRIhpbP4GoGaAghMMUrvYQYCPm39Jqg==
+"@pefish/js-electron-common@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.3.4.tgz#3f5f86baf7e44f79ba75dbda5c830a9fd82d2795"
+  integrity sha512-nIpKlQcvWS+Y4dijyX5DsidUc9OAHqkJI/fiTStaSBzw/E6aOVY4DLq9PR7udSgjbBgU7ukEmGJdJfAD6W1YRg==
   dependencies:
     "@pefish/js-error" "^0.1.1"
+    "@pefish/js-helper-logger" "^0.0.8"
     "@pefish/js-util-desensitize" "^0.1.0"
     "@pefish/js-util-file" "^0.0.4"
     "@pefish/js-util-httprequest" "^0.1.0"
@@ -54,10 +55,10 @@
     "@pefish/js-error" "^0.1.1"
     bignumber.js "^8.1.1"
 
-"@pefish/js-util-config@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-config/-/js-util-config-0.2.1.tgz#d6d2a55a001f0a4884c5688078107e4d924573cf"
-  integrity sha512-TftBcJzlf5rKLjhT6TYuzj0ieDs2++rqkDosS5nbHtt/uzl+KgFcO5bmADr1T814x76CtXQu5e+IBIqVSaeV+g==
+"@pefish/js-util-config@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@pefish/js-util-config/-/js-util-config-0.2.3.tgz#03a98ca5cb615aea8c2817a54f6e71534d6af6ba"
+  integrity sha512-oH2VZc1YtbjG/KUwIR7aqeU+9eB6qntDdu49DqkM/UzkDs6/ElEO/loJt4y+BlXRjZQR9tBHC7HVUqytGr8YdQ==
   dependencies:
     js-yaml "^3.13.1"
 
