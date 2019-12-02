@@ -31,4 +31,7 @@ server/lib
 **/*/prod.json
 **/*/dev.json
 **/*/local.json
+**/*/prod.yaml
+**/*/dev.yaml
+**/*/local.yaml
 out
