@@ -26,5 +26,5 @@ global.app.start(
     
   },
   path.join(__dirname, './controller'),
-  `/index`,
+  `/home`,
 )

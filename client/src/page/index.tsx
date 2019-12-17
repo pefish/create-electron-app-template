@@ -14,6 +14,7 @@ export default class Index extends React.Component {
         height: `100%`,
       }}>
         <Switch>
+          <Route path={`/`} component={Home} />
           <Route path={`/index`} component={Home} />
           <Route component={NotFound} />
         </Switch>
