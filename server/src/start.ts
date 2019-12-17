@@ -21,10 +21,13 @@ global.app = new App(
   config,
   config.env !== 'prod'
 )
+global.app.appendWindowOptions({
+  resizable: true,
+})
 global.app.start(
   async () => {
     
   },
   path.join(__dirname, './controller'),
-  `/test`,
+  `/index`,
 )
