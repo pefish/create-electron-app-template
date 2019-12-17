@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@pefish/js-electron-common@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.3.4.tgz#3f5f86baf7e44f79ba75dbda5c830a9fd82d2795"
-  integrity sha512-nIpKlQcvWS+Y4dijyX5DsidUc9OAHqkJI/fiTStaSBzw/E6aOVY4DLq9PR7udSgjbBgU7ukEmGJdJfAD6W1YRg==
+"@pefish/js-electron-common@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.3.6.tgz#bba956eef783f8a1525c7140ac41621c2f00494a"
+  integrity sha512-ZaHUwsS0W6KllQJqHFyMw3x1VZz789jzmH8e4FHTnhqJYFRVz8+2tYNZFOP7mvdXpgKTXKoGIQe93QV+cukkYw==
   dependencies:
     "@pefish/js-error" "^0.1.1"
     "@pefish/js-helper-logger" "^0.0.8"
@@ -95,9 +95,9 @@
   integrity sha512-NYrtPht0wGzhwe9+/idPaBB+TqkY9AhTvOLMkThm0IoEfLaiVQZwBwyJ5puCkO3AUCWrmcoePjp2mbFocKy4SQ==
 
 "@types/node@^10.12.18":
-  version "10.14.13"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.13.tgz#ac786d623860adf39a3f51d629480aacd6a6eec7"
-  integrity sha512-yN/FNNW1UYsRR1wwAoyOwqvDuLDtVXnaJTZ898XIw/Q5cCaeVAlVwvsmXLX5PuiScBYwZsZU4JYSHB3TvfdwvQ==
+  version "10.17.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.9.tgz#4f251a1ed77ac7ef09d456247d67fc8173f6b9da"
+  integrity sha512-+6VygF9LbG7Gaqeog2G7u1+RUcmo0q1rI+2ZxdIg2fAUngk5Vz9fOCHXdloNUOHEPd1EuuOpL5O0CdgN9Fx5UQ==
 
 "@types/node@^11.13.7":
   version "11.13.18"
@@ -1023,9 +1023,9 @@ electron-rebuild@^1.8.5:
     yargs "^13.2.2"
 
 electron@^5.0.2:
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.7.tgz#a48fcbd13d30f16f7d7887908b68e52156e90259"
-  integrity sha512-OMMz8DhatxLuBFbnW7KYcAUjflGYFn0IQEtKR0iZhMAm89FgNOd9SVbxXWAGNxvRR6C0gORXwhTh6BCqqqcR6Q==
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.12.tgz#2d5438f8e2b8b99ea99848b61238fc66c283e861"
+  integrity sha512-Ydby8wfShB39MkZCF2PcAuNACj4PYbGxc0hGpThqZOiDgnSVroqvUAOSX9GCJogrjcP30ZZIe6TgPtQEABYg3w==
   dependencies:
     "@types/node" "^10.12.18"
     electron-download "^4.1.0"

@@ -4,7 +4,7 @@
   "description": "template_description",
   "private": true,
   "dependencies": {
-    "@pefish/js-electron-common": "^0.3.4",
+    "@pefish/js-electron-common": "^0.3.6",
     "@pefish/js-helper-logger": "^0.0.8",
     "@pefish/js-node-assist": "^0.6.11",
     "@pefish/js-util-assert": "^0.0.3",
@@ -28,6 +28,7 @@
     "electron-packager": "^13.0.1",
     "electron-rebuild": "^1.8.5",
     "nodemon": "^1.18.7",
+    "electron": "^5.0.2",
     "rimraf": "^2.6.3",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
