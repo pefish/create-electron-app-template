@@ -26,5 +26,5 @@ global.app.start(
     
   },
   path.join(__dirname, './controller'),
-  path.join(FileUtil.getStartFilePath(), '../build/index.html'),
+  `/index`,
 )
