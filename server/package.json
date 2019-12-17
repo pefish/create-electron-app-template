@@ -4,7 +4,7 @@
   "description": "template_description",
   "private": true,
   "dependencies": {
-    "@pefish/js-electron-common": "^0.3.10",
+    "@pefish/js-electron-common": "^0.4.0",
     "@pefish/js-helper-logger": "^0.0.8",
     "@pefish/js-node-assist": "^0.6.11",
     "@pefish/js-util-assert": "^0.0.3",

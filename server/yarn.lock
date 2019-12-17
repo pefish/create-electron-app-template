@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@pefish/js-electron-common@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.3.10.tgz#a5253f49301dd02852c7b755dd6fab8d50ef6595"
-  integrity sha512-zH5IYtpAsTmHsdVk1bzHxIrCqQcp/1xBS/0g1+rTYlIf89P0IFW13YaL5vqphL8xjCTQ7KbRT1WVKgsrUzJisg==
+"@pefish/js-electron-common@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.4.0.tgz#13a1df9476661e29c8ed6204ed5a1a896d39ca3f"
+  integrity sha512-7+d8W2cxe69saMBMAPWC02xN41Z5R9OeD0o3G5oitMAJa95B9n31c4kD6RaRPb0DxhMGq0MyxkQVZX/G0uLtOw==
   dependencies:
     "@pefish/js-error" "^0.1.1"
     "@pefish/js-helper-logger" "^0.0.8"
