@@ -12,13 +12,14 @@
     "@pefish/js-util-file": "^0.0.4"
   },
   "productName": "template",
-  "main": "lib/start.js",
+  "main": "out/start.min.js",
   "scripts": {
-    "build": "rimraf -rf lib && tsc",
+    "build": "rimraf -rf lib && tsc && yarn minify && rimraf -rf lib",
     "start": "yarn build && NODE_CONFIG=`pwd`/config/local.yaml electron .",
     "start-prod": "yarn build && electron .",
-    "pack-mac": "electron-rebuild -a x64 && electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --package-manager=yarn --icon=icon.icns",
-    "pack-win": "electron-rebuild -a x64 && electron-packager ./ template --platform=win32 --arch=x64 --electron-version=5.0.2 --out=../out --version-string.CompanyName=PEFISH --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --package-manager=yarn --icon=icon.ico"
+    "minify": "uglifyjs-folder lib -eo out",
+    "pack-mac": "electron-rebuild -a x64 && electron-packager ./ template --platform=mas --arch=x64 --electron-version=5.0.2 --out=../out --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --ignore=^/src --ignore=^/lib --package-manager=yarn --icon=icon.icns",
+    "pack-win": "electron-rebuild -a x64 && electron-packager ./ template --platform=win32 --arch=x64 --electron-version=5.0.2 --out=../out --version-string.CompanyName=PEFISH --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --ignore=^/src --ignore=^/lib --package-manager=yarn --icon=icon.ico"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -31,6 +32,7 @@
     "nodemon": "^1.18.7",
     "rimraf": "^2.6.3",
     "ts-node": "^8.1.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "uglifyjs-folder": "^1.5.1"
   }
 }
