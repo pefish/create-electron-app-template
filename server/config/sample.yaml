@@ -1,2 +1,13 @@
 env: local
-
+remoteConfig:
+  enable: false
+  remoteConfigName: test
+  
+  apiKey: "**"
+  authDomain: "**"
+  databaseURL: "**"
+  projectId: "**"
+  storageBucket: "**"
+  messagingSenderId: "**"
+  appId: "**"
+  measurementId: "**"
