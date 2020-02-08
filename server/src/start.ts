@@ -3,6 +3,7 @@ import path from 'path'
 import { App } from '@pefish/js-electron-common'
 import FileUtil from '@pefish/js-util-file'
 import ConfigUtil from '@pefish/js-util-config'
+// import firebase from 'firebase'
 
 declare global {
   namespace NodeJS {
