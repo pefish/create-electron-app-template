@@ -40,9 +40,11 @@ export default class CommonStore {
         fetchTimeoutMillis: 20000,
         minimumFetchIntervalMillis: 10000,
       }
-      await remoteConfig.fetchAndActivate()
-      const config = JSON.parse(remoteConfig.getValue(this.configs.remoteConfig.remoteConfigName).asString())
-      this.configs = Object.assign(this.configs, config)
+      const activated = await remoteConfig.fetchAndActivate()
+      if (activated) {
+        const config = JSON.parse(remoteConfig.getValue(this.configs.remoteConfig.remoteConfigName).asString())
+        this.configs = Object.assign(this.configs, config)
+      }
     } catch(err) {
       console.error(err)
       throw err
