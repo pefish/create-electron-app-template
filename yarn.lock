@@ -88,6 +88,13 @@
     request "^2.88.0"
     request-promise-native "^1.0.8"
 
+"@pefish/js-util-time@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@pefish/js-util-time/-/js-util-time-0.1.1.tgz#a3a5bffac0f2211023d4459c050acf4526cbcf6a"
+  integrity sha512-Imod0Ryrw2VEEfjcSnnrIIXVDgoeBMYSri5lHR4Ym3KKYRE6R3/cCl0lymcdMaOK5P5waGy1z1MtodHDgLkUfA==
+  dependencies:
+    moment "^2.24.0"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -4173,6 +4180,11 @@ tough-cookie@~2.4.3:
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
+
+tree-kill@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
+  integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
 trim-newlines@^1.0.0:
   version "1.0.0"

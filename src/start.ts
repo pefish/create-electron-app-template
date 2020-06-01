@@ -16,6 +16,7 @@ const config = ConfigUtil.loadYamlConfig({
   configEnvName: `NODE_CONFIG`,
   configFilePath: path.join(FileUtil.getStartFilePath(), `../config/prod.yaml`),
 })
+
 global.app = new App(
   require(path.join(FileUtil.getStartFilePath(), '../package.json')),
   config,
@@ -24,6 +25,7 @@ global.app = new App(
 global.app.appendWindowOptions({
   resizable: true,
 })
+
 global.app.start(
   async () => {
     

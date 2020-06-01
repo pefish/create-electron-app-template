@@ -10,6 +10,9 @@ import FileUtil from '@pefish/js-util-file'
 import HttpRequestUtil from '@pefish/js-util-httprequest';
 import IpcMainUtil from './ipc_main'
 import DesensitizeUtil from '@pefish/js-util-desensitize'
+import { spawn, ChildProcess } from 'child_process'
+import TimeUtil from '@pefish/js-util-time'
+import kill from 'tree-kill'
 
 class App {
   public dataDir: string
@@ -30,7 +33,7 @@ class App {
   }
   private appMenuArr: { [x: string]: any }[] = []
   private prodUri: string = path.join(FileUtil.getStartFilePath(), '../build/index.html')
-  private debugUri: string = `http://localhost:3000`
+  private child: ChildProcess
 
   constructor(packageInfo: { [x: string]: any }, config: { [x: string]: any }, isDebug: boolean = true) {
     this.packageInfo = packageInfo
@@ -50,6 +53,27 @@ class App {
     this.appMenuArr.push(appMenu)
   }
 
+  async waitStartClient (): Promise<string> {
+    let done = false
+    let url = ""
+    this.child = spawn('yarn', ["start-client"], {
+      detached: false,
+    })
+    this.child.stdout.on('data', (data: string) => {
+      // console.log(`child stdout: ${data}`);
+      if (data.includes("You can now view client in the browser")) {
+        url = "http://localhost:3000/"  // 可以使用正则取出url。TODO
+        done = true
+      }
+    })
+    while (!done) {
+      await TimeUtil.sleep(5000)
+      this.logger.info(`waiting client start...`)
+    }
+    this.logger.info(`client start done!!!`)
+    return url
+  }
+
   start(
     willStartFunc: () => Promise<void>,
     controllerPath: string,
@@ -63,8 +87,8 @@ class App {
         await willStartFunc()
         this.mainWindow = this.getMainWindow()
         let url = 'file://' + this.prodUri
-        if (this.config.env !== 'prod') {
-          url = this.debugUri
+        if (this.isDebug) {
+          url = await this.waitStartClient()
         }
         url += `#` + loadPage
         this.logger.info(`url: ${url}`)
@@ -78,6 +102,17 @@ class App {
     })
     electron.app.on('window-all-closed', async () => {
       try {
+        if (this.child) {
+          let clientClosed = false
+          this.child.on('close', (code, signal) => {
+            this.logger.info(`client killed`)
+            clientClosed = true
+          })
+          kill(this.child.pid, "SIGINT")
+          while (!clientClosed) {
+            await TimeUtil.sleep(300)
+          }
+        }
         onClosed && await onClosed()
       } catch (err) {
         this.logger.error(util.inspect(err))
@@ -104,11 +139,11 @@ class App {
     IpcMainUtil.onSyncCommand(async (event, cmd, args) => {
       let reply
       try {
-        this.logger.info(`-----------收到同步请求 ${cmd} ${DesensitizeUtil.desensitizeObjectToString(args)}`)
+        this.logger.info(`收到同步请求 ${cmd} ${DesensitizeUtil.desensitizeObjectToString(args)}`)
         const [instanceName, methodName] = cmd.split(/\./)
         if (!this.routes[instanceName]) {
           IpcMainUtil.return_(event, `${cmd} nothing`)
-          this.logger.info(`-----------回复同步请求 ${cmd} nothing`)
+          this.logger.info(`回复同步请求 ${cmd} nothing`)
           return
         }
         const result = await this.routes[instanceName][methodName](args)
@@ -130,10 +165,10 @@ class App {
     IpcMainUtil.onAsyncCommand(async (event, cmd, args) => {
       let reply
       try {
-        this.logger.info(`-----------收到异步请求 ${cmd} ${DesensitizeUtil.desensitizeObjectToString(args)}`)
+        this.logger.info(`收到异步请求 ${cmd} ${DesensitizeUtil.desensitizeObjectToString(args)}`)
         const [instanceName, methodName] = cmd.split(/\./)
         if (!this.routes[instanceName]) {
-          this.logger.info(`-----------回复异步请求 ${cmd} 未找到路由`)
+          this.logger.info(`回复异步请求 ${cmd} 未找到路由`)
           return
         }
         const result = await this.routes[instanceName][methodName](args)
