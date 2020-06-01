@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 import CommonStore from './common_store';
-import { IpcRenderUtil } from '@pefish/js-electron-common'
+import IpcRenderUtil from '../util/ipc_render'
 
 export default class HomeStore {
 

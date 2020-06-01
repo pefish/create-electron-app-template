@@ -1,6 +1,6 @@
 import '@pefish/js-node-assist'
 import path from 'path'
-import { App } from '@pefish/js-electron-common'
+import App from './util/app'
 import FileUtil from '@pefish/js-util-file'
 import ConfigUtil from '@pefish/js-util-config'
 

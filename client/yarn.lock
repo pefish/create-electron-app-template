@@ -1375,21 +1375,6 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@pefish/js-electron-common@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@pefish/js-electron-common/-/js-electron-common-0.2.0.tgz#bb86682368ca5612b58476cea485ca386c440e0a"
-  integrity sha512-WDWL//VULXc9VxnZ/V95vFU76dgcPcF/1CVoCIw/ZhJkkWJA57scZ8StRIhpbP4GoGaAghMMUrvYQYCPm39Jqg==
-  dependencies:
-    "@pefish/js-error" "^0.1.1"
-    "@pefish/js-util-desensitize" "^0.1.0"
-    "@pefish/js-util-file" "^0.0.4"
-    "@pefish/js-util-httprequest" "^0.1.0"
-
-"@pefish/js-error@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.1.tgz#d3e6f4a1362206aaf73afd628465364c3a581ed2"
-  integrity sha512-JNLY0twr0fVEnGgrMetZsBZrStDGmHDX0dY9amDChTzVqrGEd6dvpzkR9BxINGhWgeAX6naTzI2FZn3ZwGlrsw==
-
 "@pefish/js-error@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.2.tgz#89913c01f960318fa5108e79d99c27ad90b4430f"
@@ -1402,36 +1387,6 @@
   dependencies:
     "@pefish/js-error" "^0.1.2"
     bignumber.js "^8.1.1"
-
-"@pefish/js-node-assist@^0.6.6":
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.6.tgz#62673762c0dcc8ce3faf20c8bb777008fb69a084"
-  integrity sha512-IvdZCVDZXi2oc25XlKEHC7bCMaTNyDmYN+wPpcRQOEpa1A4JEsscIVWbw33zNMeKWuOfVWdFdJopgxwchRHx3A==
-  dependencies:
-    "@pefish/js-error" "^0.1.1"
-    bignumber.js "^8.1.1"
-
-"@pefish/js-util-desensitize@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-desensitize/-/js-util-desensitize-0.1.0.tgz#8cec31858ee9b450512a7053dbbd1cca7c9933fd"
-  integrity sha512-+rGrebTjtrpWoZmXU+969kYtsBWOw2r5M5YLp3nixfgpjC8z9LYhBPlSejaBSIsSLfXLWjRx0Dvnmgap/VXz3A==
-
-"@pefish/js-util-file@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-file/-/js-util-file-0.0.4.tgz#74dd7ec5826fc91804672831b43d1ab621c38809"
-  integrity sha512-V17FmGxppoTlUB4e19pOl5q08tI4Tiyn444cUz/E6vJ18qkSd7L+AoHio0JhbUA+OKIm0GALB5NDI1fqOrXlRw==
-  dependencies:
-    "@pefish/js-error" "^0.1.1"
-    "@pefish/js-node-assist" "^0.6.6"
-
-"@pefish/js-util-httprequest@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@pefish/js-util-httprequest/-/js-util-httprequest-0.1.0.tgz#0646bb3c5b0d0d6ea3bbecd82f7d39283f859e86"
-  integrity sha512-fSizNlq3TkIi4Uwrj0Q3syc/Li81b24W+R8uWvyEzlrilUJ9bljbXn3vQURmCfEv7IsmAHT0BTxxyH3mW5eNjA==
-  dependencies:
-    "@pefish/js-util-desensitize" "^0.1.0"
-    request "^2.88.0"
-    request-promise-native "^1.0.8"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
@@ -6964,7 +6919,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
 
-lodash@^4.16.5, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.4:
+lodash@^4.16.5, lodash@^4.17.13, lodash@^4.17.4:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -9889,28 +9844,12 @@ request-promise-core@1.1.2:
   dependencies:
     lodash "^4.17.11"
 
-request-promise-core@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.3.tgz#e9a3c081b51380dfea677336061fea879a829ee9"
-  integrity sha512-QIs2+ArIGQVp5ZYbWD5ZLCY29D5CfWizP8eWnm8FoGD1TX61veauETVQbrV60662V0oFBkrDOuaBI8XgtuyYAQ==
-  dependencies:
-    lodash "^4.17.15"
-
 request-promise-native@^1.0.5:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/request-promise-native/-/request-promise-native-1.0.7.tgz#a49868a624bdea5069f1251d0a836e0d89aa2c59"
   integrity sha512-rIMnbBdgNViL37nZ1b3L/VfPOpSi0TqVDQPAvO6U14lMzOLrt5nilxCQqtDKhZeDiW0/hkCXGoQjhgJd/tCh6w==
   dependencies:
     request-promise-core "1.1.2"
-    stealthy-require "^1.1.1"
-    tough-cookie "^2.3.3"
-
-request-promise-native@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/request-promise-native/-/request-promise-native-1.0.8.tgz#a455b960b826e44e2bf8999af64dff2bfe58cb36"
-  integrity sha512-dapwLGqkHtwL5AEbfenuzjTYg35Jd6KPytsC2/TLkVMz8rm+tNt72MGUWT1RP/aYawMpN6HqbNGBQaRcBtjQMQ==
-  dependencies:
-    request-promise-core "1.1.3"
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 

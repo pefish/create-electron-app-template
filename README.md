@@ -1,22 +1,21 @@
-## Quick Overview
+# XXX
+
+XXX
+
+## Quick start
 
 ```sh
-yarn global add electron@
-yarn global add @pefish/create-app
-create-app electron my-app
-cd my-app
-yarn start-client
-yarn start-server
+$ yarn && yarn start
 ```
 
-### build on mac
+## Document
 
-```sh
-yarn pack-mac
-```
+[Doc](https://XXX)
 
-### build on windows
+## Security Vulnerabilities
 
-```sh
-yarn pack-win
-```
+If you discover a security vulnerability within XXX, please send an e-mail to [pefish@qq.com](mailto:pefish@qq.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+This project is licensed under the [BSD 3-clause license](LICENSE).

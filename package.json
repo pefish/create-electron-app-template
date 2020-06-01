@@ -1,11 +1,41 @@
 {
-  "name": "script",
+  "name": "template",
   "version": "0.0.1",
+  "description": "template_description",
+  "private": true,
+  "dependencies": {
+    "@pefish/js-helper-logger": "^0.0.8",
+    "@pefish/js-node-assist": "^0.6.11",
+    "@pefish/js-util-assert": "^0.0.3",
+    "@pefish/js-util-config": "^0.2.3",
+    "@pefish/js-util-desensitize": "^0.1.0",
+    "@pefish/js-util-file": "^0.0.4",
+    "@pefish/js-util-httprequest": "^0.1.4"
+  },
+  "productName": "template",
+  "main": "lib/start.js",
   "scripts": {
-    "build": "cd client && yarn build && cd ../server && yarn build",
-    "start-client": "cd client && yarn start",
-    "start-server": "cd server && yarn start",
-    "pack-mac": "yarn build && cd server && yarn pack-mac",
-    "pack-win": "yarn build && cd server && yarn pack-win"
+    "build-server": "rimraf -rf lib && tsc && yarn minify",
+    "build-client": "cd client && yarn build && cd ../",
+    "start": "yarn build && NODE_CONFIG=`pwd`/config/local.yaml electron .",
+    "start-prod": "yarn build-client && yarn build-server && electron .",
+    "rebuild": "DEBUG=* electron-rebuild -a x64",
+    "minify": "uglifyjs-folder lib -eo lib -x .js",
+    "release-mac": "yarn rebuild && npm_config_electron_mirror=https://npm.taobao.org/mirrors/electron/ npm_config_electron_custom_dir=8.0.0 DEBUG=* electron-packager ./ --platform=mas --arch=x64 --electron-version=8.0.0 --out=./release --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --ignore=^/src --ignore=^/client --icon=icon.icns",
+    "release-win": "yarn rebuild && npm_config_electron_mirror=https://npm.taobao.org/mirrors/electron/ npm_config_electron_custom_dir=8.0.0 DEBUG=* electron-packager ./ --platform=win32 --arch=x64 --electron-version=8.0.0 --out=./release --version-string.CompanyName=PEFISH --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --ignore=^/src --ignore=^/client --icon=icon.ico"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.7",
+    "across-env": "^1.0.8",
+    "electron": "^8.0.0",
+    "electron-packager": "^14.2.1",
+    "electron-rebuild": "^1.10.0",
+    "nodemon": "^1.18.7",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5",
+    "uglifyjs-folder": "^1.5.1"
   }
 }

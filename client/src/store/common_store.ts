@@ -1,7 +1,7 @@
 import '@firebase/remote-config'
 import * as firebase from 'firebase'
 import { observable } from 'mobx';
-import { IpcRenderUtil } from '@pefish/js-electron-common'
+import IpcRenderUtil from '../util/ipc_render'
 
 export default class CommonStore {
   @observable public globalLoading = true;
