@@ -1,7 +1,6 @@
 /** @module */
 
 import electron from 'electron'
-import ErrorHelper from '@pefish/js-error'
 import { RequestOpts } from '@pefish/js-util-httprequest';
 
 /**
@@ -15,16 +14,15 @@ class IpcRendererUtil {
    * @param args
    * @returns {*}
    */
-  static sendSyncCommandForResult (controller: string, method: string, args: {[x: string]: any}, errCb: (errMsg: string) => void): any {
+  static sendSyncCommandForResult (controller: string, method: string, args: {[x: string]: any}, errCb?: (errMsg: string) => void): any {
     const sendEventName = `sync_message`
     const datas = {
       cmd: `${controller}.${method}`,
       args
     }
     const result = electron.ipcRenderer.sendSync(sendEventName, datas)
-    if (result[`succeed`] !== true) {
-      errCb ? errCb(result[`error_message`]) : alert(result[`error_message`])
-      throw new ErrorHelper(result[`error_message`])
+    if (result.code !== 0) {
+      throw result[`msg`]
     }
     return result[`data`]
   }
@@ -34,9 +32,8 @@ class IpcRendererUtil {
     return new Promise((resolve, reject) => {
       const receiveEventName = `async_message_${cmd}`
       electron.ipcRenderer.once(receiveEventName, (event, result) => {
-        if (result[`succeed`] !== true) {
-          errCb ? errCb(result[`error_message`]) : alert(result[`error_message`])
-          reject(new ErrorHelper(result[`error_message`]))
+        if (result.code !== 0) {
+          reject(result[`msg`])
         }
         resolve(result[`data`])
       })

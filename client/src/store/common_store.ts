@@ -5,31 +5,23 @@ import IpcRenderUtil from '../util/ipc_render'
 
 export default class CommonStore {
   @observable public globalLoading = true;
+
   public configs: {[x: string]: any} = {
     remoteConfigName: `default`
   };
 
   constructor () {
+    const datas = IpcRenderUtil.sendSyncCommandForResult('config', 'loadLocalConfig', {})
+    this.configs = Object.assign(this.configs, datas)
     this.init()
   }
 
   async init () {
     this.globalLoading = true
-    await this.loadLocalConfig()
     if (this.configs.remoteConfig && this.configs.remoteConfig.enable) {
       await this.loadRemoteConfig()
     }
     this.globalLoading = false
-  }
-  
-  async loadLocalConfig () {
-    try {
-      const datas = await IpcRenderUtil.sendAsyncCommand('config', 'loadLocalConfig', {})
-      this.configs = Object.assign(this.configs, datas)
-    } catch(err) {
-      console.error(err)
-      throw err
-    }
   }
 
   async loadRemoteConfig () {

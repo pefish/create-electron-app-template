@@ -1,18 +1,18 @@
-import { observable, action } from 'mobx';
+import { observable } from 'mobx';
 import CommonStore from './common_store';
 import IpcRenderUtil from '../util/ipc_render'
+import { withGlobalLoading } from '../util/decorator';
 
 export default class HomeStore {
 
   private commonStore: CommonStore
   @observable
-  private counter = 0;
+  public counter = 0;
 
   constructor (commonStore: CommonStore) {
     this.commonStore = commonStore
   }
 
-  @action
   async add () {
     try {
       this.counter++
@@ -22,26 +22,18 @@ export default class HomeStore {
     }
   }
 
+  @withGlobalLoading()
   async requestServer () {
-    try {
-      const datas = await IpcRenderUtil.sendAsyncCommand('test', 'test', {
-        haha: `test`,
-      })
-      return datas
-    } catch(err) {
-      console.error(err)
-      throw err
-    }
+    const datas = await IpcRenderUtil.sendAsyncCommand('test', 'test', {
+      haha: `test`,
+    })
+    return datas
   }
 
+  @withGlobalLoading()
   async netRequestServer () {
-    try {
-      const datas = await IpcRenderUtil.httpGet(`http://baidu.com`)
-      return datas
-    } catch(err) {
-      console.error(err)
-      throw err
-    }
+    const datas = await IpcRenderUtil.httpGet(`http://baidu.com`)
+    return datas
   }
 
 }

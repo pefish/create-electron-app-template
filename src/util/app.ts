@@ -53,22 +53,55 @@ class App {
     this.appMenuArr.push(appMenu)
   }
 
+  async waitKillClient () {
+    if (this.child) {
+      let clientClosed = false
+      this.child.on('close', (code, signal) => {
+        this.logger.info(`client killed`)
+        clientClosed = true
+      })
+      kill(this.child.pid, "SIGINT")
+      while (!clientClosed) {
+        await TimeUtil.sleep(300)
+      }
+    }
+  }
+
   async waitStartClient (): Promise<string> {
     let done = false
     let url = ""
+    let allData = ""
+    let error = null
+
     this.child = spawn('yarn', ["start-client"], {
       detached: false,
     })
     this.child.stdout.on('data', (data: string) => {
       // console.log(`child stdout: ${data}`);
+      allData += data
+      if (data.includes("Compiled with warnings")) {
+        error = new Error(data)
+        done = true
+        return
+      }
       if (data.includes("You can now view client in the browser")) {
         url = "http://localhost:3000/"  // 可以使用正则取出url。TODO
         done = true
       }
     })
+    let counter = 0
     while (!done) {
       await TimeUtil.sleep(5000)
       this.logger.info(`waiting client start...`)
+      counter++
+      if (counter >= 7) {
+        error = new Error(`client start failed!!! allData: ${allData}`)
+        break
+      }
+    }
+    if (error) {
+      await this.waitKillClient()
+      throw error
     }
     this.logger.info(`client start done!!!`)
     return url
@@ -102,17 +135,7 @@ class App {
     })
     electron.app.on('window-all-closed', async () => {
       try {
-        if (this.child) {
-          let clientClosed = false
-          this.child.on('close', (code, signal) => {
-            this.logger.info(`client killed`)
-            clientClosed = true
-          })
-          kill(this.child.pid, "SIGINT")
-          while (!clientClosed) {
-            await TimeUtil.sleep(300)
-          }
-        }
+        await this.waitKillClient()
         onClosed && await onClosed()
       } catch (err) {
         this.logger.error(util.inspect(err))
@@ -142,21 +165,22 @@ class App {
         this.logger.info(`收到同步请求 ${cmd} ${DesensitizeUtil.desensitizeObjectToString(args)}`)
         const [instanceName, methodName] = cmd.split(/\./)
         if (!this.routes[instanceName]) {
-          IpcMainUtil.return_(event, `${cmd} nothing`)
-          this.logger.info(`回复同步请求 ${cmd} nothing`)
+          const msg = `${cmd} 未找到路由`
+          IpcMainUtil.return_(event, msg)
+          this.logger.error(msg)
           return
         }
         const result = await this.routes[instanceName][methodName](args)
         reply = {
-          succeed: true,
+          code: 0,
           data: result
         }
         IpcMainUtil.return_(event, reply)
       } catch (err) {
         this.logger.error(util.inspect(err))
         reply = {
-          succeed: false,
-          error_message: err.getErrorMessage_ ? err.getErrorMessage_() : err.message
+          code: 1,
+          msg: err.getErrorMessage_ ? err.getErrorMessage_() : err.message
         }
         IpcMainUtil.return_(event, reply)
       }
@@ -168,20 +192,25 @@ class App {
         this.logger.info(`收到异步请求 ${cmd} ${DesensitizeUtil.desensitizeObjectToString(args)}`)
         const [instanceName, methodName] = cmd.split(/\./)
         if (!this.routes[instanceName]) {
-          this.logger.info(`回复异步请求 ${cmd} 未找到路由`)
-          return
-        }
-        const result = await this.routes[instanceName][methodName](args)
-        reply = {
-          succeed: true,
-          data: result
+          const msg = `${cmd} 未找到路由`
+          this.logger.error(msg)
+          reply = {
+            code: 1,
+            msg,
+          }
+        } else {
+          const result = await this.routes[instanceName][methodName](args)
+          reply = {
+            code: 0,
+            data: result
+          }
         }
         IpcMainUtil.sendAsyncCommand(event, cmd, reply)
       } catch (err) {
         this.logger.error(util.inspect(err))
         reply = {
-          succeed: false,
-          error_message: err.getErrorMessage_ ? err.getErrorMessage_() : err.message
+          code: 1,
+          msg: err.getErrorMessage_ ? err.getErrorMessage_() : err.message
         }
         IpcMainUtil.sendAsyncCommand(event, cmd, reply)
       }

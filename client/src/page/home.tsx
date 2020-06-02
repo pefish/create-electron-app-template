@@ -2,45 +2,40 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import './home.css'
 import {
-  Button, Input, Spin,
+  Button,
 } from 'antd';
+import HomeStore from '../store/home_store';
+import CommonStore from '../store/common_store';
 
 @inject('homeStore', 'commonStore')
 @observer
-export default class Home extends React.Component<any, any> {
+export default class Home extends React.Component<{
+  homeStore?: HomeStore,
+  commonStore?: CommonStore,
+  [x: string]: any,
+}, any> {
   render() {
     return (
-      <Spin tip="Loading..." spinning={this.props.commonStore.globalLoading}>
-        <div className="app">
-          <div style={{
-            width: 300
-          }}>
-            <Input placeholder={`用户名`} />
-            <Input placeholder={`密码`} />
-            <Button type={`primary`}>登录</Button>
-          </div>
-          <div style={{
-            display: `flex`,
-            flexDirection: `column`,
-            marginTop: 100
-          }}>
-            <span>
-              {this.props.homeStore.counter}
-            </span>
-            <Button type={`primary`} onClick={() => {
-              this.props.homeStore.add()
-            }}>加计数</Button>
-            <Button type={`primary`} onClick={async () => {
-              const datas = await this.props.homeStore.requestServer()
-              alert(JSON.stringify(datas))
-            }}>IPC请求后端</Button>
-            <Button type={`primary`} onClick={async () => {
-              const datas = await this.props.homeStore.netRequestServer()
-              alert(JSON.stringify(datas))
-            }}>网络请求百度</Button>
-          </div>
-        </div>
-      </Spin>
+      <div className="home" style={{
+        flex: 1,
+        display: `flex`,
+        flexDirection: `column`,
+      }}>
+        <span>
+          {this.props.homeStore!.counter}
+        </span>
+        <Button type={`primary`} onClick={() => {
+          this.props.homeStore!.add()
+        }}>加计数</Button>
+        <Button type={`primary`} onClick={async () => {
+          const datas = await this.props.homeStore!.requestServer()
+          alert(JSON.stringify(datas))
+        }}>IPC请求后端</Button>
+        <Button type={`primary`} onClick={async () => {
+          const datas = await this.props.homeStore!.netRequestServer()
+          alert(JSON.stringify(datas))
+        }}>网络请求百度</Button>
+      </div>
     );
   }
 }
