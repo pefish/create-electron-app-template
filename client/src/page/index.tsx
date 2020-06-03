@@ -25,7 +25,7 @@ export default class Index extends React.Component<{
         <Route component={NotFound} />
       </Switch>
     )
-    if (this.props.commonStore!.configs.pages.login.enable === true) {
+    if (this.props.commonStore!.configs.pages && this.props.commonStore!.configs.pages.login.enable === true) {
       switchCompo = (
         <Switch>
           <Route exact path={`/`} component={Login} />
