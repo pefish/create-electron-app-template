@@ -40,7 +40,7 @@ class Login extends Component<{
           <div className={'display_flex'} style={{
             flex: 1,
             alignItems: `center`,
-            justifyContent: `center`
+            justifyContent: `center`,
           }}>
             <span style={{
               fontSize: 70,
@@ -59,31 +59,46 @@ class Login extends Component<{
             justifyContent: 'center',
             alignItems: `center`,
           }}>
-            <Input style={{
-              width: 240,
-            }} placeholder="用户名" onChange={(e) => {
-              this.props.loginStore!.username = e.target.value
-            }} />
-            <Input.Password style={{
-              marginTop: 10,
-              width: 240,
-            }} placeholder="密码" onChange={(e) => {
-              this.props.loginStore!.password = e.target.value
-            }} />
-            <Button
-              loading={this.props.commonStore!.globalLoading}
-              style={{
-                height: 34,
-                marginTop: 40,
+            <div className={'display_flex'} style={{
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: `center`,
+              height: 60,
+            }}>
+              <h3>欢迎回来</h3>
+            </div>
+            <div className={'display_flex'} style={{
+              flexDirection: 'column',
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: `center`,
+            }}>
+              <Input style={{
                 width: 240,
-              }}
-              type={`primary`}
-              size={`small`}
-              onClick={async () => {
-                await this.props.loginStore!.authenticate()
-                this.props.history!.replace('/home')
-              }}
-            >登录</Button>
+              }} placeholder="用户名" onChange={(e) => {
+                this.props.loginStore!.username = e.target.value
+              }} />
+              <Input.Password style={{
+                marginTop: 10,
+                width: 240,
+              }} placeholder="密码" onChange={(e) => {
+                this.props.loginStore!.password = e.target.value
+              }} />
+              <Button
+                loading={this.props.commonStore!.globalLoading}
+                style={{
+                  height: 34,
+                  marginTop: 40,
+                  width: 240,
+                }}
+                type={`primary`}
+                size={`small`}
+                onClick={async () => {
+                  await this.props.loginStore!.authenticate()
+                  this.props.history!.replace('/home')
+                }}
+              >登录</Button>
+            </div>
           </div>
         </div>
       </div>
