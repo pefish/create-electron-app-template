@@ -15,13 +15,8 @@ export default class HomeStore {
     this.commonStore = commonStore
   }
 
-  async add () {
-    try {
-      this.counter++
-    } catch(err) {
-      console.error(err)
-      throw err
-    }
+  add () {
+    this.counter++
   }
 
   @withGlobalLoading()

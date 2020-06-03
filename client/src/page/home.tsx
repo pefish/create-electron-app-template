@@ -54,13 +54,11 @@ export default class Home extends React.Component<{
         }}>
           <div className={'flex_direction_row display_flex'}>
             <Select
-              value={this.props.homeStore!.selectedClass}
               style={{ width: 120, marginRight: 10, }}
               placeholder="类别"
               loading={false}
               onChange={(v) => {
-                console.log(v)
-                this.props.homeStore!.selectedClass = v
+                this.props.homeStore!.selectedClass = v.toString()
               }}
             >
               {["a","b","c"].map((data) => {
