@@ -41,6 +41,8 @@ class Login extends Component<{
             flex: 1,
             alignItems: `center`,
             justifyContent: `center`,
+          }} onClick={() => {
+            alert("没事点我作甚，点登陆!!!")
           }}>
             <span style={{
               fontSize: 70,

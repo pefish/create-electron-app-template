@@ -228,7 +228,7 @@ class App {
             label: 'About ...',
             click: () => {
               electron.dialog.showMessageBox({
-                message: this.packageInfo.description
+                message: `${this.packageInfo.description}\n\n\n框架制作：pefish\n框架地址：https://github.com/pefish/create-electron-app-template`
               })
             }
           },
@@ -239,7 +239,7 @@ class App {
             label: 'Version ...',
             click: () => {
               electron.dialog.showMessageBox({
-                message: `v${this.packageInfo.version}\n${this.packageInfo.versionDescription || ""}`
+                message: `v${this.packageInfo.version}\n\n${this.packageInfo.versionDescription || ""}`
               })
             }
           },

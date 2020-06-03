@@ -1,6 +1,7 @@
 {
   "name": "template",
   "version": "0.0.1",
+  "versionDescription": "第一个版本",
   "description": "template_description",
   "private": true,
   "dependencies": {
