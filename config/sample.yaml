@@ -1,4 +1,8 @@
 env: local
+pages:
+  login:
+    enable: true
+    title: "哈哈"
 remoteConfig:
   enable: false
   remoteConfigName: test
