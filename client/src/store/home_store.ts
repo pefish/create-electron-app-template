@@ -6,9 +6,10 @@ import { withGlobalLoading } from '../util/decorator';
 export default class HomeStore {
 
   private commonStore: CommonStore
-  @observable
-  public counter = 0;
+  @observable public counter = 0;
   @observable public selectedMenu = `default`;
+  @observable public selectedClass = `a`
+  @observable public txid
 
   constructor (commonStore: CommonStore) {
     this.commonStore = commonStore

@@ -43,3 +43,7 @@ This project is licensed under the [BSD 3-clause license](LICENSE).
 ### 效果图
 
 ![image](https://github.com/pefish/create-electron-app-template/blob/master/images/login.png)
+
+![image](https://github.com/pefish/create-electron-app-template/blob/master/images/home_menu1.png)
+
+![image](https://github.com/pefish/create-electron-app-template/blob/master/images/home_menu2.png)

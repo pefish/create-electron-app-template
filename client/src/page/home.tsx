@@ -5,10 +5,12 @@ import {
   Menu,
   Icon,
   Button,
+  Select,
+  Input,
 } from 'antd';
 import HomeStore from '../store/home_store';
 import CommonStore from '../store/common_store';
-
+const Option = Select.Option
 @inject('homeStore', 'commonStore')
 @observer
 export default class Home extends React.Component<{
@@ -43,6 +45,39 @@ export default class Home extends React.Component<{
           }}>网络请求百度</Button>
         </div>
       )
+    } else if (this.props.homeStore!.selectedMenu === `default1`) {
+      return (
+        <div className={'flex1 flex_direction_column display_flex'} style={{
+          padding: 10,
+          width: 1160,
+          height: 760,
+        }}>
+          <div className={'flex_direction_row display_flex'}>
+            <Select
+              value={this.props.homeStore!.selectedClass}
+              style={{ width: 120, marginRight: 10, }}
+              placeholder="类别"
+              loading={false}
+              onChange={(v) => {
+                console.log(v)
+                this.props.homeStore!.selectedClass = v
+              }}
+            >
+              {["a","b","c"].map((data) => {
+                return <Option value={data}>{data}</Option>
+              })}
+            </Select>
+            <Input addonBefore="ID" value={this.props.homeStore!.txid} style={{
+              width: 500,
+              marginRight: 10,
+            }} onChange={(e) => this.props.homeStore!.txid = e.target.value} />
+            <Button type="primary" onClick={() => {
+              // this.props.homeStore!.doSth()
+              alert(`成功`)
+            }} style={{ marginRight: 10 }}>确定</Button>
+          </div>
+        </div>
+      )
     } else {
       return <span>nothing</span>
     }
@@ -72,6 +107,10 @@ export default class Home extends React.Component<{
             <Menu.Item key="default">
               <Icon type="alipay" />
               <span>Default</span>
+            </Menu.Item>
+            <Menu.Item key="default1">
+              <Icon type="alipay" />
+              <span>Default1</span>
             </Menu.Item>
           </Menu>
         </div>
