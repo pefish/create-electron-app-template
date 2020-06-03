@@ -44,7 +44,8 @@ class Login extends Component<{
           }}>
             <span style={{
               fontSize: 70,
-              color: `white`
+              color: `white`,
+              textShadow: `10px 10px 5px #888888`,
             }}>{this.props.commonStore!.configs.pages.login.title}</span>
           </div>
           <div className={'display_flex'} style={{
