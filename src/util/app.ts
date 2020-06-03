@@ -68,8 +68,12 @@ class App {
   }
 
   async waitStartClient (): Promise<string> {
+    let url = "http://localhost:3000/"
+    if (process.env["NO_CLIENT"] === "1") {
+      return url
+    }
+
     let done = false
-    let url = ""
     let allData = ""
     let error = null
 
@@ -85,7 +89,7 @@ class App {
         return
       }
       if (data.includes("You can now view client in the browser")) {
-        url = "http://localhost:3000/"  // 可以使用正则取出url。TODO
+        // url = "http://localhost:3000/"  // 可以使用正则取出url。TODO
         done = true
       }
     })
@@ -228,7 +232,7 @@ class App {
             label: 'About ...',
             click: () => {
               electron.dialog.showMessageBox({
-                message: `${this.packageInfo.description}\n\n\n框架制作：pefish\n框架地址：https://github.com/pefish/create-electron-app-template`
+                message: this.packageInfo.description
               })
             }
           },
@@ -239,7 +243,7 @@ class App {
             label: 'Version ...',
             click: () => {
               electron.dialog.showMessageBox({
-                message: `v${this.packageInfo.version}\n\n${this.packageInfo.versionDescription || ""}`
+                message: `v${this.packageInfo.version}\n${this.packageInfo.versionDescription || ""}`
               })
             }
           },

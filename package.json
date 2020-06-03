@@ -21,6 +21,7 @@
     "build-server": "rimraf -rf lib && tsc && yarn minify",
     "build-client": "cd client && yarn build && cd ../",
     "start": "yarn build-server && NODE_CONFIG=`pwd`/config/local.yaml electron .",
+    "start-no-client": "NO_CLIENT=1 yarn start",
     "start-client": "cd client && yarn start",
     "start-prod": "yarn build-client && yarn build-server && electron .",
     "rebuild": "DEBUG=* electron-rebuild -a x64",
