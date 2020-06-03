@@ -8,6 +8,7 @@ export default class HomeStore {
   private commonStore: CommonStore
   @observable
   public counter = 0;
+  @observable public selectedMenu = `default`;
 
   constructor (commonStore: CommonStore) {
     this.commonStore = commonStore

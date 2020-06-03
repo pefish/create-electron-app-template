@@ -6,10 +6,10 @@ export function withGlobalLoading() {
     descriptor.value = async function (...args) {
       try {
         this.commonStore.globalLoading = true
-        const result = await fun.apply(this, args)
-        return result
+        return await fun.apply(this, args)
       } catch (err) {
         alert(util.inspect(err, false, 10))
+        throw err
       } finally {
         this.commonStore.globalLoading = false
       }
