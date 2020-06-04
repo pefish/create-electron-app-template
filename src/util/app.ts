@@ -10,7 +10,8 @@ import FileUtil from '@pefish/js-util-file'
 import HttpRequestUtil from '@pefish/js-util-httprequest';
 import IpcMainUtil from './ipc_main'
 import DesensitizeUtil from '@pefish/js-util-desensitize'
-import { spawn, ChildProcess } from 'child_process'
+import { ChildProcess } from 'child_process'
+import { spawn } from 'cross-spawn'
 import TimeUtil from '@pefish/js-util-time'
 import kill from 'tree-kill'
 
@@ -93,12 +94,15 @@ class App {
         done = true
       }
     })
+    this.child.stdout.on('error', (data: string) => {
+      console.error(`child stdout: ${data}`);
+    })
     let counter = 0
     while (!done) {
       await TimeUtil.sleep(5000)
       this.logger.info(`waiting client start...`)
       counter++
-      if (counter >= 7) {
+      if (counter >= 10) {
         error = new Error(`client start failed!!! allData: ${allData}`)
         break
       }

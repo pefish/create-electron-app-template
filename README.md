@@ -1,5 +1,11 @@
 ## 脚手架介绍
 
+### 安装脚手架
+
+```shell
+
+```
+
 ### 使用技术
 
 1. electron
@@ -24,6 +30,12 @@
 ![image](https://github.com/pefish/create-electron-app-template/blob/master/images/home_menu1.png)
 
 ![image](https://github.com/pefish/create-electron-app-template/blob/master/images/home_menu2.png)
+
+### Todo
+
+1. 修复windows出现alert后输入框无法输入的问题
+2. release改成脚本
+3. create-app适配Windows
 
 
 
