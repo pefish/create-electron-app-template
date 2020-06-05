@@ -19,17 +19,14 @@
   "productName": "template",
   "main": "lib/start.js",
   "scripts": {
-    "build-server": "rimraf -rf lib && tsc && yarn minify",
+    "build-server": "rimraf -rf lib && tsc && uglifyjs-folder lib -eo lib -x .js",
     "build-client": "cd client && yarn build && cd ../",
     "start": "cross-env NODE_CONFIG=`pwd`/config/local.yaml node scripts/start.js",
     "start-no-client": "cross-env NO_CLIENT=1 yarn start",
     "start-client": "cd client && yarn start",
     "start-prod": "yarn build && electron .",
     "build": "yarn build-client && yarn build-server",
-    "rebuild": "cross-env DEBUG=* electron-rebuild -a x64",
-    "minify": "uglifyjs-folder lib -eo lib -x .js",
-    "release-mac": "yarn build && yarn rebuild && npm_config_electron_mirror=https://npm.taobao.org/mirrors/electron/ npm_config_electron_custom_dir=8.0.0 DEBUG=* electron-packager ./ --platform=mas --arch=x64 --electron-version=8.0.0 --out=./release --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --ignore=^/src --ignore=^/client --icon=icon.icns",
-    "release-win": "yarn build && yarn rebuild && cross-env npm_config_electron_mirror=https://npm.taobao.org/mirrors/electron/ npm_config_electron_custom_dir=8.0.0 DEBUG=* electron-packager ./ --platform=win32 --arch=x64 --electron-version=8.0.0 --out=./release --version-string.CompanyName=PEFISH --overwrite --ignore=\"(.git|yarn.lock|tsconfig.json)\" --ignore=\"^/src\" --ignore=\"^/client\" --icon=icon.ico"
+    "release": "node scripts/release.js"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",

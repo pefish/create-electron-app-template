@@ -2,7 +2,10 @@ import { observable } from 'mobx';
 import IpcRendererUtil from '../util/ipc_render'
 import CommonStore from './common_store';
 import { withGlobalLoading } from '../util/decorator';
-
+import {
+  Modal,
+} from 'antd';
+import { bool } from 'prop-types';
 export default class LoginStore {
   private commonStore: CommonStore
 
@@ -51,12 +54,30 @@ export default class LoginStore {
   }
 
   @withGlobalLoading()
-  async authenticate() {
-    await IpcRendererUtil.sendAsyncCommand('login', 'login', {
+  async authenticate(): Promise<boolean> {
+    if (!this.username) {
+      Modal.error({
+        title: "错误",
+        content: "请填写用户名",
+      })
+      return false
+    }
+    if (!this.password) {
+      Modal.warn({
+        title: "错误",
+        content: "请填写密码",
+      })
+      return false
+    }
+    const [_, err] = await IpcRendererUtil.sendAsyncCommand('login', 'login', {
       username: this.username,
       password: this.password,
     })
+    if (err) {
+      return false
+    }
     this.isAuthenticated = true;
+    return true
   }
 
   signout() {

@@ -7,6 +7,8 @@ const fs = require('fs');
 const spawn = require('cross-spawn');
 const packageData = require('../package.json')
 
+const electronVersion = packageData.devDependencies.electron.substr(1)
+
 const clientModulesExist = fs.existsSync("./client/node_modules")
 if (!clientModulesExist) {
     spawn.sync('yarn', [], { 
@@ -15,7 +17,7 @@ if (!clientModulesExist) {
         env: {
             ...process.env,
             npm_config_electron_mirror: "https://npm.taobao.org/mirrors/electron/",
-            npm_config_electron_custom_dir: packageData.devDependencies.electron.substr(1),
+            npm_config_electron_custom_dir: electronVersion,
         }
     });
 }
@@ -27,7 +29,7 @@ if (!serverModulesExist) {
         env: {
             ...process.env,
             npm_config_electron_mirror: "https://npm.taobao.org/mirrors/electron/",
-            npm_config_electron_custom_dir: packageData.devDependencies.electron.substr(1),
+            npm_config_electron_custom_dir: electronVersion,
         }
     });
 }

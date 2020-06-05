@@ -11,7 +11,10 @@ export default class CommonStore {
   };
 
   constructor () {
-    const datas = IpcRenderUtil.sendSyncCommandForResult('config', 'loadLocalConfig', {})
+    const [datas, err] = IpcRenderUtil.sendSyncCommandForResult('config', 'loadLocalConfig', {})
+    if (err) {
+      throw err
+    }
     this.configs = Object.assign(this.configs, datas)
     this.init()
   }

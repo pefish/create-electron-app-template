@@ -7,6 +7,7 @@ import {
   Button,
   Select,
   Input,
+  Modal,
 } from 'antd';
 import HomeStore from '../store/home_store';
 import CommonStore from '../store/common_store';
@@ -36,12 +37,20 @@ export default class Home extends React.Component<{
             this.props.homeStore!.add()
           }}>加计数</Button>
           <Button type={`primary`} onClick={async () => {
-            const datas = await this.props.homeStore!.requestServer()
-            alert(JSON.stringify(datas))
+            const [data, err] = await this.props.homeStore!.requestServer()
+            if (!err) {
+              Modal.info({
+                content: JSON.stringify(data),
+              })
+            }
           }}>IPC请求后端</Button>
           <Button type={`primary`} onClick={async () => {
-            const datas = await this.props.homeStore!.netRequestServer()
-            alert(JSON.stringify(datas))
+            const [data, err] = await this.props.homeStore!.netRequestServer()
+            if (!err) {
+              Modal.info({
+                content: JSON.stringify(data),
+              })
+            }
           }}>网络请求百度</Button>
         </div>
       )
@@ -71,7 +80,9 @@ export default class Home extends React.Component<{
             }} onChange={(e) => this.props.homeStore!.txid = e.target.value} />
             <Button type="primary" onClick={() => {
               // this.props.homeStore!.doSth()
-              alert(`成功`)
+              Modal.info({
+                title: `成功`,
+              })
             }} style={{ marginRight: 10 }}>确定</Button>
           </div>
         </div>

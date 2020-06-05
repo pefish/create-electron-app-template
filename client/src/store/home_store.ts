@@ -2,6 +2,7 @@ import { observable } from 'mobx';
 import CommonStore from './common_store';
 import IpcRenderUtil from '../util/ipc_render'
 import { withGlobalLoading } from '../util/decorator';
+import { ReturnType } from '../util/type';
 
 export default class HomeStore {
 
@@ -20,17 +21,15 @@ export default class HomeStore {
   }
 
   @withGlobalLoading()
-  async requestServer () {
-    const datas = await IpcRenderUtil.sendAsyncCommand('test', 'test', {
+  async requestServer (): Promise<ReturnType> {
+    return await IpcRenderUtil.sendAsyncCommand('test', 'test', {
       haha: `test`,
     })
-    return datas
   }
 
   @withGlobalLoading()
-  async netRequestServer () {
-    const datas = await IpcRenderUtil.httpGet(`http://baidu.com`)
-    return datas
+  async netRequestServer (): Promise<ReturnType> {
+    return await IpcRenderUtil.httpGet(`http://baidu.com`)
   }
 
 }

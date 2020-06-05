@@ -4,7 +4,9 @@ import { withRouter } from 'react-router-dom'
 import { inject, observer } from 'mobx-react';
 import CommonStore from '../store/common_store';
 import LoginStore from '../store/login_store';
-
+import {
+  Modal,
+} from 'antd';
 
 @inject('commonStore', 'loginStore')
 @(withRouter as any)
@@ -42,7 +44,10 @@ class Login extends Component<{
             alignItems: `center`,
             justifyContent: `center`,
           }} onClick={() => {
-            alert("没事点我作甚，点登陆!!!")
+            Modal.warn({
+              title: "生气😠",
+              content: "没事点我作甚，点登陆!!!",
+            })
           }}>
             <span style={{
               fontSize: 70,
@@ -96,8 +101,9 @@ class Login extends Component<{
                 type={`primary`}
                 size={`small`}
                 onClick={async () => {
-                  await this.props.loginStore!.authenticate()
-                  this.props.history!.replace('/home')
+                  if (await this.props.loginStore!.authenticate()) {
+                    this.props.history!.replace('/home')
+                  }
                 }}
               >登录</Button>
             </div>

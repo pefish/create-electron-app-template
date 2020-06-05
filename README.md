@@ -3,7 +3,7 @@
 ### 安装脚手架
 
 ```shell
-
+create-app -t electron --desc "我的electron项目"
 ```
 
 ### 使用技术
@@ -33,9 +33,7 @@
 
 ### Todo
 
-1. 修复windows出现alert后输入框无法输入的问题
-2. release改成脚本
-3. create-app适配Windows
+1. create-app适配Windows
 
 
 
