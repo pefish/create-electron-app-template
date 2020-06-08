@@ -33,11 +33,6 @@ create-app -t electron --desc "我的electron项目"
 
 ![image](https://github.com/pefish/create-electron-app-template/blob/master/images/list.png)
 
-### Todo
-
-1. create-app适配Windows
-
-
 
 # XXX
 
