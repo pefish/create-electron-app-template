@@ -82,14 +82,16 @@ class App {
       detached: false,
     })
     this.child.stdout.on('data', (data: string) => {
-      // console.log(`child stdout: ${data}`);
-      allData += data
-      if (data.includes("Compiled with warnings")) {
-        error = new Error(data)
-        done = true
+      if (error) {
+        console.error(`${data}`);
         return
       }
-      if (data.includes("You can now view client in the browser")) {
+      allData += data
+      if (data.includes("Failed to compile")) {
+        error = new Error(data)
+        return
+      }
+      if (data.includes("You can now view client in the browser") || data.includes("Compiled with warnings")) {
         // url = "http://localhost:3000/"  // 可以使用正则取出url。TODO
         done = true
       }

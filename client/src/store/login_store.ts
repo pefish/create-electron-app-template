@@ -5,7 +5,6 @@ import { withGlobalLoading } from '../util/decorator';
 import {
   Modal,
 } from 'antd';
-import { bool } from 'prop-types';
 export default class LoginStore {
   private commonStore: CommonStore
 
