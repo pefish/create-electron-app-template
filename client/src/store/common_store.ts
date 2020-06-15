@@ -4,7 +4,7 @@ import { observable } from 'mobx';
 import IpcRenderUtil from '../util/ipc_render'
 
 export default class CommonStore {
-  @observable public globalLoading = true;
+  @observable public globalLoading: boolean = true;
 
   public configs: {[x: string]: any} = {
     remoteConfigName: `default`

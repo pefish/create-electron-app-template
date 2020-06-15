@@ -69,6 +69,7 @@ export default class Home extends React.Component<{
           <div className={'flex_direction_row display_flex'}>
             <Select
               style={{ width: 120, marginRight: 10, }}
+              value={this.props.homeStore!.selectedClass}
               placeholder="类别"
               loading={false}
               onChange={(v) => {

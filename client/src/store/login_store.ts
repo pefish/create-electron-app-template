@@ -9,20 +9,20 @@ export default class LoginStore {
   private commonStore: CommonStore
 
   @observable
-  public r = 255;
+  public r: number = 255;
   @observable
-  public g = 0;
+  public g: number = 0;
   @observable
-  public b = 0;
+  public b: number = 0;
   @observable
-  public a = 0.25;
-  private timer;
+  public a: number = 0.25;
+  private timer: NodeJS.Timeout;
   @observable
-  public username;
+  public username: string;
   @observable
-  public password;
+  public password: string;
   @observable
-  public isAuthenticated = false;
+  public isAuthenticated: boolean = false;
 
   constructor(commonStore) {
     this.commonStore = commonStore

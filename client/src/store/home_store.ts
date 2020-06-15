@@ -10,7 +10,7 @@ export default class HomeStore {
   private commonStore: CommonStore
   @observable public counter: number = 0;
   @observable public selectedMenu: string = `default`;
-  @observable public selectedClass: string = `a`
+  @observable public selectedClass: string | undefined = undefined
   @observable public txid: string = ``
   @observable public uuid: string = ``
   @observable public time: [Moment, Moment] = [null, null]
