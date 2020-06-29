@@ -146,6 +146,16 @@ export default class Home extends React.Component<{
                     }}><span>{text}</span></div>
                   )
                 },
+                sorter: (a: any, b: any) => {
+                  if (a.tx_id < b.tx_id) {
+                    return -1
+                  }
+                  if (a.tx_id > b.tx_id) {
+                    return 1
+                  }
+                  return 0
+                },
+                sortDirections: ['descend', 'ascend'],
               },
               {
                 title: '手续费',
