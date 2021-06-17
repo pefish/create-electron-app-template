@@ -41,7 +41,7 @@ class App {
     this.config = config
     this.isDebug = isDebug
     const homedir = os.homedir()
-    this.logger = new Log4js(this.packageInfo.name, `${homedir}/.${this.packageInfo.name}/log`, isDebug ? `debug` : `info`)
+    this.logger = new Log4js(this.packageInfo.name, isDebug ? `debug` : `info`)
     this.dataDir = `${homedir}/.${packageInfo.name}/data`
     FileUtil.mkdirSync(this.dataDir)
   }

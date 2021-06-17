@@ -143,8 +143,8 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^4.3.4",
-    "cross-env": "^7.0.2",
-    "electron": "^8.0.0",
-    "rimraf": "^2.6.3"
+    "cross-env": "^7.0.3",
+    "electron": "^13.1.2",
+    "rimraf": "^3.0.2"
   }
 }
