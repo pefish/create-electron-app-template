@@ -1,5 +1,3 @@
-/** @module */
-
 import electron from 'electron'
 import { RequestOpts } from '@pefish/js-util-httprequest';
 import {

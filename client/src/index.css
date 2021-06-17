@@ -1,4 +1,3 @@
-@import './css/utils.css';
 @import '~antd/dist/antd.css';
 
 body {
@@ -8,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -15,17 +15,7 @@ code {
     monospace;
 }
 
-#root {
-  display: flex;
-  height: 100%;
-}
-
-.ant-spin-nested-loading {
-  width: 100%;
-  height: 100%;
-}
-
-.ant-spin-container {
-  width: 100%;
-  height: 100%;
+.click-div {
+  cursor: pointer;
+  text-decoration: underline;
 }

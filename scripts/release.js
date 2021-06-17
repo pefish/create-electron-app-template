@@ -5,6 +5,7 @@ process.on('unhandledRejection', err => {
 
 const spawn = require('cross-spawn');
 const fs = require('fs');
+const fsExtra = require('fs-extra');
 const os = require('os')
 const packageData = require('../package.json')
 const electronVersion = packageData.devDependencies.electron.substr(1)
@@ -17,6 +18,10 @@ if (!prodYamlExist) {
 
 spawn.sync('yarn', ["build"], {
   stdio: 'inherit',
+});
+
+fsExtra.moveSync("./client/build", "./build", {
+  overwrite: true
 });
 
 spawn.sync('electron-rebuild', ["-a", "x64"], {
@@ -47,8 +52,8 @@ if (platform === "darwin") {
       stdio: 'inherit',
       env: {
         ...process.env,
-        npm_config_electron_mirror: "https://npm.taobao.org/mirrors/electron/",
-        npm_config_electron_custom_dir: electronVersion,
+        // npm_config_electron_mirror: "https://npm.taobao.org/mirrors/electron/",
+        // npm_config_electron_custom_dir: electronVersion,
         DEBUG: "*",
       }
     });
@@ -70,8 +75,8 @@ if (platform === "darwin") {
       stdio: 'inherit',
       env: {
         ...process.env,
-        npm_config_electron_mirror: "https://npm.taobao.org/mirrors/electron/",
-        npm_config_electron_custom_dir: electronVersion,
+        // npm_config_electron_mirror: "https://npm.taobao.org/mirrors/electron/",
+        // npm_config_electron_custom_dir: electronVersion,
         DEBUG: "*",
       }
     });

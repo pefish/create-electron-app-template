@@ -34,19 +34,29 @@ create-app -t electron --desc "我的electron项目"
 ![image](https://github.com/pefish/create-electron-app-template/blob/master/images/list.png)
 
 
-# XXX
+### 安装依赖
 
-XXX
-
-## Quick start
-
-```sh
-$ yarn && yarn start
+```shell
+yarn
 ```
 
-## Document
+### 开发模式启动
 
-[Doc](https://XXX)
+```shell
+yarn start
+```
+
+### 生产模式启动
+
+```shell
+yarn start-prod
+```
+
+### 打包本机可执行文件
+
+```shell
+yarn release
+```
 
 ## Security Vulnerabilities
 

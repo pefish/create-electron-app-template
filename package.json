@@ -23,7 +23,7 @@
     "build-client": "cd client && yarn build && cd ../",
     "start": "cross-env NODE_CONFIG=`pwd`/config/local.yaml node scripts/start.js",
     "start-no-client": "cross-env NO_CLIENT=1 yarn start",
-    "start-client": "cd client && yarn start",
+    "start-client": "cd client && cross-env BROWSER=none yarn start",
     "start-prod": "yarn build && electron .",
     "build": "yarn build-client && yarn build-server",
     "release": "node scripts/release.js"
@@ -36,6 +36,7 @@
     "electron": "^13.1.2",
     "electron-packager": "^15.2.0",
     "electron-rebuild": "^2.3.5",
+    "fs-extra": "^10.0.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.3",

@@ -126,7 +126,7 @@ class App {
     electron.app.on('ready', async () => {
       try {
         this.logger.info(`starting ...`)
-        this.buildRoute(controllerPath)
+        await this.buildRoute(controllerPath)
         await willStartFunc()
         this.mainWindow = this.getMainWindow()
         let url = 'file://' + this.prodUri
@@ -135,7 +135,7 @@ class App {
         }
         url += `#` + loadPage
         this.logger.info(`url: ${url}`)
-        this.mainWindow.loadURL(url)
+        await this.mainWindow.loadURL(url)
         this.mainWindow.show()
         this.logger.info(`started !!!`)
       } catch (err) {
@@ -285,6 +285,20 @@ class App {
             label: '开发者选项',
             click: () => {
               window.webContents.openDevTools()
+            }
+          },
+          { type: "separator" },
+          {
+            label: 'Back',
+            click: () => {
+              window.webContents.goBack()
+            }
+          },
+          { type: "separator" },
+          {
+            label: 'Forward',
+            click: () => {
+              window.webContents.goForward()
             }
           },
           { type: "separator" },
