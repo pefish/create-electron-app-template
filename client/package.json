@@ -144,7 +144,7 @@
   "devDependencies": {
     "@types/react-router-dom": "^4.3.4",
     "cross-env": "^7.0.3",
-    "electron": "^13.1.2",
+    "electron": "^9.4.0",
     "rimraf": "^3.0.2"
   }
 }
